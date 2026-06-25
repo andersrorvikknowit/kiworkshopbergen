@@ -67,6 +67,8 @@ Goal: learn how Codex can help turn a mixed folder of documents into a searchabl
 
 In real projects, useful information is often scattered across meeting notes, Word documents, exported PDFs, slide notes, and ad hoc text files. Markdown gives you a clean common format, and Obsidian makes the folder pleasant to browse, search, link, and annotate.
 
+This repository includes a starter folder for the exercise: `sample-documents`. It contains two `.docx` files, one text-based PDF, and one image-based scanned-style PDF.
+
 Tools to install:
 
 - [Download Obsidian](https://obsidian.md/download)
@@ -74,25 +76,43 @@ Tools to install:
 
 Suggested flow:
 
-1. Create a new folder called `knowledge-base`.
-2. Ask Codex to help convert source documents into Markdown.
-3. Use Pandoc for document formats it handles well, such as `.docx`, `.html`, `.odt`, and `.rtf`.
-4. For PDFs, ask Codex to inspect the file and choose a suitable extraction path. Some PDFs contain selectable text, while scanned PDFs may need OCR before they can become good Markdown.
-5. Ask Codex to clean up the converted Markdown: titles, headings, bullet lists, links, metadata, and filenames.
-6. Open the `knowledge-base` folder as a vault in Obsidian.
-7. Use Obsidian to browse, link, tag, and search the resulting documents.
+1. Use `sample-documents` as the source folder.
+2. Create a new folder called `knowledge-base`.
+3. Ask Codex to help convert source documents into Markdown.
+4. Use Pandoc for document formats it handles well, such as `.docx`, `.html`, `.odt`, and `.rtf`.
+5. For PDFs, ask Codex to inspect the file and choose a suitable extraction path. Some PDFs contain selectable text, while scanned PDFs may need OCR before they can become good Markdown.
+6. Ask Codex to clean up the converted Markdown: titles, headings, bullet lists, links, metadata, and filenames.
+7. Open the `knowledge-base` folder as a vault in Obsidian.
+8. Use Obsidian to browse, link, tag, and search the resulting documents.
+
+### Extract text from scanned PDFs with Preview on macOS Tahoe
+
+If you are on macOS Tahoe, Preview can be useful for manually extracting text from scanned PDFs when Live Text recognizes the text on the page. Try this with `sample-documents/scanned-vendor-follow-up.pdf`.
+
+Use this for quick checks or small documents:
+
+1. Open the scanned PDF in Preview.
+2. Go to the page you want to extract text from.
+3. Choose `Tools > Text Selection` if text selection is not already active.
+4. Try dragging across the text on the scanned page.
+5. If Preview recognizes the text, copy it with `Command-C`.
+6. Paste it into a `.md` file in `knowledge-base`.
+7. Ask Codex to clean up the pasted text into proper Markdown headings, paragraphs, lists, and tables.
+
+If you cannot select the text, check that `Tools > Text Selection` is enabled. If the page is still not selectable, the scan probably needs OCR before it can be converted cleanly. In that case, ask Codex to suggest an OCR-based workflow instead of relying on Pandoc alone.
 
 Example Pandoc commands:
 
 ```sh
 brew install pandoc
-pandoc source.docx -t gfm -o knowledge-base/source.md
-pandoc source.html -t gfm -o knowledge-base/source.md
+mkdir -p knowledge-base
+pandoc sample-documents/q3-roadmap-brief.docx -t gfm -o knowledge-base/q3-roadmap-brief.md
+pandoc sample-documents/checkout-customer-research.docx -t gfm -o knowledge-base/checkout-customer-research.md
 ```
 
 Suggested prompt:
 
-> Help me turn this folder of documents into an Obsidian-friendly Markdown knowledge base. Use Pandoc where appropriate, extract readable text from PDFs when needed, clean up headings and filenames, and create an index note that links to the converted documents.
+> Help me turn the `sample-documents` folder into an Obsidian-friendly Markdown knowledge base. Use Pandoc where appropriate, extract readable text from PDFs when needed, clean up headings and filenames, and create an index note that links to the converted documents.
 
 Suggested follow-up prompt for cross-references:
 
