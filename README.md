@@ -82,22 +82,6 @@ Suggested flow:
 6. Open the `knowledge-base` folder as a vault in Obsidian.
 7. Use Obsidian to browse, link, tag, and search the resulting documents.
 
-### Extract text from scanned PDFs with Preview on macOS Tahoe
-
-If you are on macOS Tahoe, Preview can be useful for manually extracting text from scanned PDFs when Live Text recognizes the text on the page.
-
-Use this for quick checks or small documents:
-
-1. Open the scanned PDF in Preview.
-2. Go to the page you want to extract text from.
-3. Choose `Tools > Text Selection` if text selection is not already active.
-4. Try dragging across the text on the scanned page.
-5. If Preview recognizes the text, copy it with `Command-C`.
-6. Paste it into a `.md` file in `knowledge-base`.
-7. Ask Codex to clean up the pasted text into proper Markdown headings, paragraphs, lists, and tables.
-
-If you cannot select the text, check that `Tools > Text Selection` is enabled. If the page is still not selectable, the scan probably needs OCR before it can be converted cleanly. In that case, ask Codex to suggest an OCR-based workflow instead of relying on Pandoc alone.
-
 Example Pandoc commands:
 
 ```sh
