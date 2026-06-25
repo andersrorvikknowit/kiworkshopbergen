@@ -1,0 +1,27 @@
+standup weds - quick one 9:32
+
+raj
+y: finished the jira cleanup, reviewed toms PR
+t: shadow mode infra, spinning up the staging env
+blockers: none. maybe needs aws creds from devops
+
+priya
+y: design handoff sorted FINALLY, address form started
+t: address form validation states
+b: waiting on copy for error msgs, pinged content team no reply
+
+sofie
+y: mobile cart bug - turned out to be a flexbox thing on safari only
+t: fix + test on real device, our browserstack acct expired btw can someone renew
+b: browserstack
+
+tom (async, slack)
+"finishing guest checkout email validation, PR up by EOD. also the double analytics event is worse than i thought, its firing 3x on some flows now. will dig"
+
+me
+y: shadow mode plan doc, shared in channel
+t: webhook retry logic
+b: none
+
+reminders: demo friday 3pm, retro after
+markus not here, on PTO til thurs

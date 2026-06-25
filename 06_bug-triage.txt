@@ -1,0 +1,29 @@
+bug triage - weds biweekly, 30 min
+me + raj + sofie. tom couldnt make it
+
+going thru the inbox, 17 new bugs since last triage
+
+P1 (this sprint)
+- BUG-902 analytics events firing 2-3x on confirm page. FINALLY prioritizing. assign tom. this is messing up our conversion numbers, growth team complaining
+- BUG-915 password reset email sometimes not sent, ~handful of reports. sofie repro'd intermittently. assign sofie, looks like a queue issue
+
+P2 (backlog, soon)
+- BUG-908 cart total flickers on quantity change, react re-render thing
+- BUG-911 discount code field accepts whitespace, "  SAVE10 " fails. easy fix, good first issue
+- BUG-919 safari date picker styling off (again, safari)
+- BUG-921 search returns stale results after filter, caching
+
+P3 / wont fix / needs info
+- BUG-905 "app slow" - no repro steps, ask reporter for details
+- BUG-913 typo on the about page, just fix it whenever, raj will do
+- BUG-917 user wants dark mode - thats a feature not a bug, move to product backlog
+- BUG-920 dup of 902, close
+
+quick ones we just fixed in the meeting
+- the about page typo, raj pushed it
+- closed 3 dupes
+
+note: a lot of safari bugs lately, do we need better cross browser testing in ci? raj to raise w team
+also the password reset one - if its a queue issue might be related to the same infra as the analytics events? sofie + tom to compare notes
+
+next triage in 2 wks. raj sending the recap to the channel

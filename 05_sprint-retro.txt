@@ -1,0 +1,37 @@
+retro sprint 24 - fri 3:45 (after demo)
+present: whole team. used the start/stop/continue board in miro
+
+mood check: mixed. the incident rattled people but sprint shipped
+
+WENT WELL / CONTINUE
+- guest checkout shipped, demo looked great, stakeholders happy
+- shadow mode plan well received in arch review
+- sofie's safari fix, quick turnaround
+- pairing on the webhook stuff (me + raj) worked well, do more
+
+STOP / WENT BADLY
+- friday deploys (see INC-1847). everyone agrees STOP
+- we overcommit every sprint then carry over. 2 tickets carried again
+- design handoffs always late, blocks priya repeatedly
+- browserstack acct lapsed and nobody owned renewing it
+- standups drifting long, going into problem solving
+
+START / TRY
+- canary deploys (already an action item from postmortem)
+- "definition of ready" before pulling a ticket into sprint - priya suggested
+- rotate a "build cop" each sprint to own ci/tooling/renewals
+- timebox standup to 10 min, take deep dives offline
+
+discussion
+- raj: the overcommit thing is real, lets actually plan to 80% of velocity not 100%
+- tom: the analytics double/triple firing still not fixed, keeps getting deprioritized. team agreed to give it a slot next sprint
+- sofie raised that on-call is stressful w only 3 people in rotation, can we add markus. markus ok with it after migration
+
+ACTIONS
+- priya draft definition of ready, review next planning
+- raj set up build cop rotation, he's first
+- add analytics fix to next sprint backlog top
+- me: talk to markus about joining on-call rotation
+- kudos: sofie for the incident response
+
+team voted, top thing to fix = stop overcommitting

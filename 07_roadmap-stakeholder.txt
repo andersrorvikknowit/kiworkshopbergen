@@ -1,0 +1,36 @@
+Q3 roadmap sync w/ stakeholders
+thurs 1pm, big group
+attendees: me, raj (eng), priya (design), karin (product lead), the VP (daniel) for first 20 min, marketing (lars), sales rep (nadia)
+
+daniel opened - wants payments migration DONE before the holiday freeze (nov), thats the #1 priority from leadership. no slippage
+- raj flagged it's risky to rush, daniel said resource it properly then. agreed to pull in a contractor maybe
+
+karin presented draft Q3 themes
+1. payments / stripe migration (committed, must finish)
+2. checkout conversion improvements (the analytics fix unblocks measuring this)
+3. subscriptions / recurring billing - NEW, sales is asking for it
+4. perf / tech debt - karin carved out 20% capacity, eng happy
+
+sales (nadia) pushing hard on subscriptions
+- "i have 3 enterprise deals waiting on recurring billing, ~$400k ARR"
+- karin: cant commit to a date til payments migration lands, the billing work depends on it
+- nadia not thrilled but understands the dependency
+
+marketing (lars)
+- wants the checkout improvements before their sept campaign
+- needs a firm date to plan creative. karin: targeting late aug, will confirm after planning
+
+discussion / tensions
+- everyone wants their thing first. karin did a good job holding the line on payments-first
+- the subscriptions work is basically blocked on payments, so sequencing is forced anyway
+- contractor idea - raj to scope what we'd actually hand off, payments is sensitive (PCI) so maybe not ideal for a contractor
+
+DECISIONS / OUTCOMES
+- Q3 priority order: payments migration > checkout conversion > subscriptions (start scoping only) > tech debt 20%
+- payments must land before nov freeze, hard deadline
+- karin to publish the roadmap doc by mon, circulate
+- nadia to send karin the enterprise deal details for subscriptions business case
+- revisit subscriptions timeline at end of july once payments progress is clear
+
+karin: this is a plan not a promise, dates firm up after sprint planning
+daniel left happy enough

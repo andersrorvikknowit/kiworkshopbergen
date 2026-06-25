@@ -1,0 +1,34 @@
+design review - checkout address form + error states
+mon 10:30, 45min
+priya (driving), me, sofie, tom, karin popped in
+
+priya walking thru the figma
+- new single-page address form, autocomplete via loqate (note: the same loqate that took us down lol, tom: we have timeouts now)
+- inline validation, real time as you type vs on blur? debate
+
+feedback / discussion
+- sofie: realtime validation can be annoying, errors flash while youre still typing. prefer on-blur for most, realtime only for postcode lookup
+- agreed: validate on blur, postcode autocomplete on type
+- tom: the autocomplete dropdown needs a loading state, what if loqate is slow. priya didnt have that designed, will add. also empty/error state if loqate down -> fall back to manual entry, dont block the user
+- me: accessibility - error messages need to be tied to fields for screen readers (aria-describedby). priya noted
+- karin: can we reduce the fields? do we need company name? data says <5% fill it. decision: make company optional, collapse behind "add company" link
+- the error message copy still placeholder, content team owes us. priya chasing (still! same as 2 weeks ago)
+
+mobile
+- sofie: the form is long on mobile, consider sticky CTA. priya will mock
+- number pad for postcode field on mobile (inputmode=numeric)
+
+DECISIONS
+- validate on blur, postcode lookup realtime
+- loqate failure -> graceful fallback to manual, never block checkout (lesson from INC-1847)
+- company name field optional + collapsed
+- need: loading state, error/empty state, aria for a11y, mobile sticky cta mock
+
+action items
+- priya: add the missing states + mobile mocks, update figma by weds
+- priya: chase content team for error copy (escalate to karin if no response by tues)
+- tom: confirm loqate fallback is feasible w current api
+- me: review a11y once states are added
+- sofie: build once design final, est 5 pts
+
+karin happy with direction. ship target = next sprint

@@ -1,0 +1,31 @@
+ARCH REVIEW - stripe migration / payments rework
+thurs 11am, ~75 min (ran over)
+attendees: me, markus, raj, elena (staff eng), dinesh (security)
+
+context: current payment flow is tightly coupled to legacy stripe v1 api, tech debt, hard to test. proposal = abstraction layer + shadow mode migration
+
+proposal walkthrough (markus)
+- PaymentGateway interface, swap impls behind it
+- shadow mode: run new path in parallel, compare results, dont charge customer twice obviously
+- idempotency keys on every request
+- webhook handler rewrite w/ retry + dead letter queue
+
+discussion / concerns
+- elena: whats the rollback story if shadow mode diverges? need a kill switch. AGREED, add feature flag
+- dinesh: PCI scope - are we storing any card data in the new path? markus: no, tokenized, still stripe vault. dinesh wants a written confirmation for the audit
+- raj worried about double webhooks during transition. markus: idempotency keys handle it
+- me: comparison logic - how do we alert on divergence? proposed: log mismatches, dashboard, alert if >0.5% mismatch rate over 1hr
+- elena pushed back, 0.5% too loose for payments. settled on 0.1%
+
+DECISIONS
+- approved to proceed w/ shadow mode approach
+- MUST have kill switch / feature flag before any prod traffic
+- divergence threshold 0.1%, alert to pagerduty
+- dinesh to review PCI doc before go-live (blocker)
+- dead letter queue: use existing sqs setup, dont build new
+
+open q's
+- do we need to migrate historical transactions? deferred, separate project
+- load testing plan - markus to draft
+
+next: markus writes ADR, circulate by next weds. elena will review

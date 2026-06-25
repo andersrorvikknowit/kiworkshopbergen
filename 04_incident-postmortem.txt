@@ -1,0 +1,40 @@
+postmortem INC-1847 - checkout 500s
+mon 10am
+blameless!! reminder from raj
+
+what happened
+- fri 4:48pm (of course friday) checkout started throwing 500s
+- ~22 min of elevated errors, peak ~40% of checkout requests failed
+- est revenue impact ~$8-12k (finance to confirm)
+
+timeline (times approx, from logs)
+4:48 - error rate spikes, pagerduty fires
+4:51 - sofie ack, starts looking
+4:55 - me + tom join the call
+5:02 - identified: the new address validation service was timing out, no timeout configured so requests hung
+5:09 - tom rolls back the address form deploy
+5:13 - errors recovering
+5:18 - back to baseline. closed incident 5:24
+
+root cause
+- address validation called a 3rd party api (loqate) w/ NO timeout set
+- when loqate got slow (their incident, confirmed on their status page), our requests piled up, thread pool exhausted, cascaded to all checkout
+- deploy went out 4:30, no canary, friday afternoon deploy (we said we'd stop doing this)
+
+what went well
+- fast detection, pagerduty worked
+- rollback was clean, sofie knew exactly what shipped
+
+what went badly
+- no timeout on external call (classic)
+- friday 4:30 deploy w no canary
+- alerting told us errors were up but took 14 min to find WHY, observability gap on the validation service
+
+ACTION ITEMS (owner / due)
+- add timeouts + circuit breaker on ALL external calls - tom - this sprint - HIGH
+- enforce no friday afternoon deploys, add to ci? - raj - propose by weds
+- canary deploys for checkout - me to scope - next sprint
+- add tracing to address validation - sofie
+- finance confirm revenue impact - raj to chase
+
+dinesh asked if any customer data leaked - no, just failed requests, confirmed

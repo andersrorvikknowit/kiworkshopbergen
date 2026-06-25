@@ -1,0 +1,29 @@
+sprint planning - tues 2:05pm (started late, waited for Priya)
+present: me, raj, priya, sofie, tom (left early ~2:40), markus dialed in
+
+sprint 24 goals -> checkout redesign + the stripe migration ugh
+velocity last sprint was 31 but we overcommitted, raj says aim for ~26 this time
+
+CHECKOUT
+- new address form, priya owns. needs design handoff still?? figma link not updated
+- guest checkout flow - tom says backend mostly done, just needs the email validation thing
+- mobile breakpoints broken on the cart, sofie will look
+- est: 13 pts total
+
+stripe migration
+- markus: we cant do the full cutover this sprint, too risky. do read-only shadow mode first
+- need to handle the webhook retry logic, this bit us last time
+- 8 pts but markus thinks more like 13 realistically
+
+ACTION ITEMS
+- priya chase design team for updated figma (today)
+- tom finish guest checkout, PR by thurs
+- raj to update jira, move the 2 carryover tickets
+- me: write up the shadow mode plan, share before fri
+- sofie - mobile cart bug
+
+parking lot: do we need a feature flag service? keep coming up. defer to next planning
+also someone mentioned the analytics events are firing twice on the confirm page - tom will file a ticket
+
+note: tom out next mon-tues (dentist + wfh)
+total committed 24 pts, leaving buffer
