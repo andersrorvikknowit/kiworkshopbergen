@@ -16,11 +16,30 @@ Sample input data is a set of realistic, messy raw meeting notes (`.txt`) from a
 The files are available here: https://github.com/andersrorvikknowit/kiworkshopbergen/
 
 1. Download the meeting note files to a folder on your disk.
-2Open a couple and skim them. Note the noise: typos, shorthand, async side-comments, decisions buried mid-paragraph, and action items in inconsistent formats. This is what the skill has to handle.
+2. Open a couple and skim them. Note the noise: typos, shorthand, async side-comments, decisions buried mid-paragraph, and action items in inconsistent formats. This is what the skill has to handle.
 
 **Done when:** you have all 8 note files locally and have read at least two.
 
-## Task 2 — Build the skill
+## Task 2 — Work with a directory of files
+
+Goal: experience how Codex can reason across a whole folder of related files, not just answer questions about one document at a time.
+
+Ask Codex to inspect the directory of meeting notes and create a new document that summarizes findings across all the files.
+
+Suggested prompt:
+
+> Summarize insights from these meeting notes. Create a document that summarizes the main findings and lists prioritized suggested improvements for the team.
+
+Things to look for in the result:
+
+- Does Codex connect recurring topics across multiple meetings?
+- Does it separate symptoms from root causes?
+- Does it turn messy notes into a useful artifact the team could actually use?
+- Does it create the document in the folder instead of only replying in chat?
+
+**Done when:** Codex has created a new summary document with cross-meeting findings and prioritized team improvement suggestions.
+
+## Task 3 — Build the skill
 
 Goal: a custom skill that turns any of these raw notes into a clean, structured summary.
 
